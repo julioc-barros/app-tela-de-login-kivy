@@ -1,0 +1,11 @@
+<MenuScreen>
+    name: "menu"
+    
+    MDTopAppBar:
+        md_bg_color: (21/255, 77/255, 208/255, 1)
+        title: "Menu"
+        pos_hint: {'top': 1}
+        adaptive_height: True
+        elevation: 5
+        icon: "git"
+        left_action_items: [["arrow-left", lambda x: root.login()]]

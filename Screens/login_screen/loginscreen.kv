@@ -1,0 +1,102 @@
+<LoginScreen>
+    name: 'login'
+    FloatLayout:
+        MDTopAppBar:
+            md_bg_color: (21/255, 77/255, 208/255, 1)
+            title: "Login"
+            pos_hint: {'top': 1}
+            adaptive_height: True
+            elevation: 5
+            icon: "git"
+            right_action_items: [["home", lambda x: root.home()]]
+        Image:
+            source: 'images/Logo.png'
+            size_hint: (0.5, 1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+        MDLabel: 
+            text: 'Seja bem Vindo!'
+            color: 15/255, 88/255, 220/255, 1
+            font_size: 25
+            bold: True
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+        MDLabel: 
+            text: 'Faça o login para continuar'
+            font_style: 'Caption'
+            halign: 'center'
+            bold: True
+            pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        MDTextField:
+            id: 'user'
+            hint_text: 'Usuário'
+            write_tab: False
+            pos_hint: {'center_x': 0.5, 'center_y': 0.46}
+            size_hint_x: .8
+            icon_left: 'email'
+        MDTextField:
+            id: 'password'
+            hint_text: 'Senha'
+            write_tab: False
+            pos_hint: {'center_x': 0.5, 'center_y': 0.36}
+            password: True
+            size_hint_x: .8
+            icon_left: 'lock'
+            on_text_validate:
+                root.auth()
+        MDTextButton:
+            text: 'Esqueci minha senha'
+            bold: True
+            color: (21/255, 77/255, 208/255, 1)
+            font_size: 12
+            pos_hint: {'center_x': 0.5, 'center_y': 0.29}
+            adaptive_height: True
+            adaptive_width: True
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: 15
+            pos_hint: {'center_x': 0.5,'center_y': 0.2}
+            adaptive_height: True
+            adaptive_width: True
+
+            MDRaisedButton: 
+                id: 'auth_login'
+                text: 'Entrar'
+                font_size: 15
+                text_color: (1,1,1,1)
+                md_bg_color: (21/255, 77/255, 208/255, 1)
+                elevation: 8
+                size_hint_x: 0.3
+                on_press: root.auth()
+
+            MDRectangleFlatButton: 
+                text: 'Criar Conta'
+                font_size: 15
+                text_color: (21/255, 77/255, 208/255, 1)
+                line_color: (21/255, 77/255, 208/255, 1)
+                elevation: 8
+                size_hint_x: 0.7
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: 20
+            pos_hint: {'center_x': 0.5,'center_y': 0.1}
+            adaptive_height: True
+            adaptive_width: True
+
+            MDIconButton:
+                icon: 'google'
+                theme_icon_color: "Custom"
+                icon_color: 'red'
+                icon_size: 35
+
+            MDIconButton:
+                icon: 'facebook'
+                theme_icon_color: "Custom"
+                icon_color: app.theme_cls.primary_color
+                icon_size: 35
+            
+            MDIconButton:
+                icon: 'apple'
+                theme_icon_color: "Custom"
+                icon_color: 'black'
+                icon_size: 35
